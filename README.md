@@ -1,2 +1,3 @@
 # AiEmpires.jl
-AiEmpires Game API
+
+AiEmpires strategy game API.
