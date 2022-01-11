@@ -3,11 +3,7 @@
 """
 module AiEmpires
 
-"""
-  greet()
-
-  This is an example documentation. 
-"""
-greet() = print("Hello World!")
+include("Units/Units.jl")
+include("Players/Players.jl")
 
 end # module
