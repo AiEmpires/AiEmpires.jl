@@ -12,13 +12,13 @@ export id, player, pos, hp, attack
 # ------------------------------------------------------------------------------------------
 
 """
-Abstract Unit Class, from which all other units derive.
+Abstract classes
 """
-abstract type AbstractUnit end
+abstract type Unit end
 
-# Unit classification properties
-@enum RangeType Melee Ranged
-# TODO: @enum AttackType Physical Magical
+abstract type MeleeUnit  <: Unit end
+abstract type RangedUnit <: Unit end
+
 
 # Include different unit classes.
 include("Knights.jl")
@@ -28,30 +28,30 @@ include("Peasants.jl")
 # GENERAL METHODS FOR ABSTRACT UNITS
 
 # General getters
-id(u::T)      where T <: AbstractUnit = u.id
-player(u::T)  where T <: AbstractUnit = u.player
-pos(u::T)     where T <: AbstractUnit = u.pos
-hp(u::T)      where T <: AbstractUnit = u.hp
-attack(u::T)  where T <: AbstractUnit = u.attack
+id(u::T)      where T <: Unit = u.id
+player(u::T)  where T <: Unit = u.player
+pos(u::T)     where T <: Unit = u.pos
+hp(u::T)      where T <: Unit = u.hp
+attack(u::T)  where T <: Unit = u.attack
 
 # General setters
-function id!(u::T,new_id::Int) where T <: AbstractUnit
+function id!(u::T, new_id::Int) where T <: Unit
     u.id = new_id
 end
 
-function player!(u::T,new_player::Int) where T <: AbstractUnit
+function player!(u::T,new_player::Int) where T <: Unit
     u.player = new_player
 end
 
-function pos!(u::T, new_pos::CartesianIndex{2}) where T <: AbstractUnit
+function pos!(u::T, new_pos::CartesianIndex{2}) where T <: Unit
     u.pos = new_pos
 end
 
-function hp!(u::T, new_hp::Int) where T <: AbstractUnit
+function hp!(u::T, new_hp::Int) where T <: Unit
     u.hp = new_hp
 end
 
-function attack!(u::T, new_attack::Int) where T <: AbstractUnit
+function attack!(u::T, new_attack::Int) where T <: Unit
     u.attack = new_attack
 end
 

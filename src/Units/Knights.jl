@@ -5,7 +5,7 @@ const KNIGHT_ATTACK  = 10
 """
   Knight unit: Basic offensive melee unit.
 """
-mutable struct Knight <: AbstractUnit
+mutable struct Knight <: MeleeUnit
   id     :: Int
   player :: Int
   pos    :: CartesianIndex{2}
@@ -16,5 +16,3 @@ end
 function Knight(id::Int,player::Int,pos::CartesianIndex{2}) :: Knight
   return Knight(id,player,pos,KNIGHT_MAX_HP,KNIGHT_ATTACK)
 end
-
-range_type(u::Knight) :: RangeType = Melee
