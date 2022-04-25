@@ -1,19 +1,10 @@
 
 module Players
 
-export AbstractPlayer
+export Player
 export id
 
-abstract type AbstractPlayer end
-
-id(p::T) where {T <: AbstractPlayer} = p.id
-
-"""
-Template for a player: 
-
-    struct Player <: AbstractPlayer
-        id    :: Int
-    end
-"""
+include("PlayersInterface.jl")
+include("Dummy.jl")
 
 end

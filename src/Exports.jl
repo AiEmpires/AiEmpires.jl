@@ -21,3 +21,6 @@ end
 @publish Units hp!
 @publish Units ap!
 
+
+@publish Players Player
+@publish Players id

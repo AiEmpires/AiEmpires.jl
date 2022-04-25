@@ -1,7 +1,7 @@
 
 export Dummy
 
-struct Dummy <: AbstractPlayer
+struct Dummy <: Player
   id    :: Int
 end
 
