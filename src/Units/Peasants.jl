@@ -10,7 +10,7 @@ mutable struct Peasant <: MeleeUnit
   player :: Int
   pos    :: CartesianIndex{2}
   hp     :: Int
-  attack :: Int
+  ap     :: Int
 end
 
 function Peasant(id::Int,player::Int,pos::CartesianIndex{2}) :: Peasant

@@ -5,54 +5,15 @@
 """
 module Units
 
-export AbstractUnit, Unit
+export Unit, MeleeUnit, RangedUnit
 export Knight, Peasant
-export id, player, pos, hp, attack
-
-# ------------------------------------------------------------------------------------------
-
-"""
-Abstract classes
-"""
-abstract type Unit end
-
-abstract type MeleeUnit  <: Unit end
-abstract type RangedUnit <: Unit end
+export id, player, pos, hp, ap
+export id!, player!, pos!, hp!, ap!
 
 
 # Include different unit classes.
+include("UnitsInterface.jl")
 include("Knights.jl")
 include("Peasants.jl")
-
-# ------------------------------------------------------------------------------------------
-# GENERAL METHODS FOR ABSTRACT UNITS
-
-# General getters
-id(u::T)      where T <: Unit = u.id
-player(u::T)  where T <: Unit = u.player
-pos(u::T)     where T <: Unit = u.pos
-hp(u::T)      where T <: Unit = u.hp
-attack(u::T)  where T <: Unit = u.attack
-
-# General setters
-function id!(u::T, new_id::Int) where T <: Unit
-    u.id = new_id
-end
-
-function player!(u::T,new_player::Int) where T <: Unit
-    u.player = new_player
-end
-
-function pos!(u::T, new_pos::CartesianIndex{2}) where T <: Unit
-    u.pos = new_pos
-end
-
-function hp!(u::T, new_hp::Int) where T <: Unit
-    u.hp = new_hp
-end
-
-function attack!(u::T, new_attack::Int) where T <: Unit
-    u.attack = new_attack
-end
 
 end # module
