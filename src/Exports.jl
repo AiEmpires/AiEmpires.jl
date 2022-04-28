@@ -24,3 +24,7 @@ end
 
 @publish Players Player
 @publish Players id
+
+@publish Gameplay Board
+@publish Gameplay Entity
+@publish Gameplay get_entities
