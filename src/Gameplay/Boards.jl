@@ -1,17 +1,17 @@
 
-# Parameters
+# Entities 
+abstract type Entity end
+struct EmptyEntity <: Entity end
+
 const MAX_NUM_ENTITIES = 200
 const NO_ENTITY        = CartesianIndex(0,0)  
+const EMPTY_ENTITY     = EmptyEntity()
 
 @enum Terrain begin
     grass
     mountain
     water
 end
-
-
-# Types
-const Entity = Union{Unit,Nothing} #TODO: Expand to buildings, natural blockers, ...
 
 mutable struct Cell
     entity  :: Entity
@@ -31,7 +31,7 @@ end
 # Constructors
 function Board(size::Tuple{Int,Int})
     # TODO: Create a procedural generator for the terrain.
-    return Board(size, [Cell(nothing,0,grass) for i in 1:size[1], j in 1:size[2]], 
+    return Board(size, [Cell(EMPTY_ENTITY,0,grass) for i in 1:size[1], j in 1:size[2]], 
                     0, fill(NO_ENTITY,MAX_NUM_ENTITIES)
                 )
 end
@@ -53,7 +53,7 @@ entity(b::Board, pos::CartesianIndex{2}) = entity(b.cells[pos])
 # Setters
 function entity!(b::Board, pos::CartesianIndex{2}, new_entity::Entity) 
     b.cells[pos].entity = deepcopy(new_entity)
-    if new_entity !== nothing
+    if new_entity !== EMPTY_ENTITY
         b.entities[id(new_entity)] = pos
     end
 end
@@ -95,7 +95,7 @@ end
     Removes Unit from Board by id.
 """
 function kill!(b::Board, id::Int)
-    entity!(b,id,nothing)
+    entity!(b,id,EMPTY_ENTITY)
     b.entities[id] = NO_ENTITY
 end
 

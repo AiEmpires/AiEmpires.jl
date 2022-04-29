@@ -7,8 +7,8 @@ module Units
 
 export Unit, MeleeUnit, RangedUnit
 export Knight, Peasant
-export id, player, pos, hp, ap
-export id!, player!, pos!, hp!, ap!
+export id, player, pos, hp, ap, dp
+export id!, player!, pos!, hp!, ap!, dp!
 
 
 # Include different unit classes.

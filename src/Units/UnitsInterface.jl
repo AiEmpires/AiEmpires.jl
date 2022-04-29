@@ -17,6 +17,7 @@ player(u::Unit) = u.player
 pos(u::Unit)    = u.pos
 hp(u::Unit)     = u.hp
 ap(u::Unit)     = u.ap
+dp(u::Unit)     = u.dp
 
 # General setters
 function id!(u::Unit, new_id::Int)
@@ -35,6 +36,10 @@ function hp!(u::Unit, new_hp::Int)
     u.hp = new_hp
 end
 
-function ap!(u::Unit, new_attack::Int)
-    u.ap = new_attack
+function ap!(u::Unit, new_ap::Int)
+    u.ap = new_ap
+end
+
+function dp!(u::Unit, new_dp::Int)
+    u.dp = new_dp
 end

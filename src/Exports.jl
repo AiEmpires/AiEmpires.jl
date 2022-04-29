@@ -15,11 +15,13 @@ end
 @publish Units pos
 @publish Units hp
 @publish Units ap
+@publish Units dp
 @publish Units id!
 @publish Units player!
 @publish Units pos!
 @publish Units hp!
 @publish Units ap!
+@publish Units dp!
 
 
 @publish Players Player
